@@ -12,16 +12,16 @@ module.exports = (phase: string) => {
   if(phase === PHASE_DEVELOPMENT_SERVER) {
     return{
        env: {
-        MONGODB_URI: process.env.MONGO_URI,
-        MONGODB_COLLECTION: process.env.MONGODB_COLLECTION_DEV
+        MONGO_URI: process.env.MONGO_URI,
+        MONGO_COLLECTION: process.env.MONGO_COLLECTION_DEV
        }
     }
   }
 
   return {
     env: {
-      MONGODB_URI: process.env.MONGO_URI,
-      MONGODB_COLLECTION: process.env.MONGODB_COLLECTION
+      MONGO_URI: process.env.MONGO_URI,
+      MONGO_COLLECTION: process.env.MONGO_COLLECTION
     }
   }
 }

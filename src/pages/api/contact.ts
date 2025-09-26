@@ -21,15 +21,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     let client;
 
     try {
-      client = await MongoClient.connect(process.env.MONGODB_URI as string);
+      client = await MongoClient.connect(process.env.MONGO_URI as string);
     } catch (error) {
       res.status(500).json({ error: 'Failed to connect to database' });
       return;
     }
-    
+
     const db = client.db();
     try {
-      const result = await db.collection(process.env.MONGODB_COLLECTION as string).insertOne(newMessage);
+      const result = await db.collection(process.env.MONGO_COLLECTION as string).insertOne(newMessage);
     } catch (error) {
       client.close();
       res.status(500).json({ error: 'Failed to insert message' });
